@@ -1,5 +1,4 @@
 import ProductCard from "./ProductCard";
-import boutiqueFashion from "";
 
 export default function ProjectList() {
     const projects = [
@@ -24,9 +23,12 @@ export default function ProjectList() {
     ];
     return (
     <div className="project-list">
-        {projects.map((project) => (
-            <ProductCard key={project.id} title={project.title} image={project.image} description={project.description} />
-        ))}
+        <h3 className="project-list__title">Projects</h3>
+        <div className="project-list__wrapper">
+            {projects.map((project) => (
+                <ProductCard key={project.id} title={project.title} image={project.image} description={project.description} />
+            ))}
+        </div>
     </div>
     );
 }
