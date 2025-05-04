@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ProjectList from "@/components/projects/ProjectList";
+import Skills from "@/components/Skills";
 
 export default function Home() {
   return (
@@ -53,6 +54,7 @@ export default function Home() {
         </div>
 
         <ProjectList />
+        <Skills />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
