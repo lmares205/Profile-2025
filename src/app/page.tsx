@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ProjectList from "@/components/projects/ProjectList";
 
 export default function Home() {
   return (
@@ -50,6 +51,8 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+
+        <ProjectList />
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
