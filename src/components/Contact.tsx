@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Contact() {
     return (
-    <div className="contact">
+    <section id="contact" className="contact">
         <h2 className="contact__title">Contact Me</h2>
         <div className="contact__links">
             <a
@@ -51,6 +51,6 @@ export default function Contact() {
             Email
             </a>
         </div>
-    </div>
+    </section>
     );
 }

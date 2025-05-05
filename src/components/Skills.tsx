@@ -31,7 +31,7 @@ export default function Skills() {
     ];
 
     return (
-    <div className="skills">
+    <section id="skills" className="skills">
         <h2 className="skills__title">Skills</h2>
         {skillCategories.map((category) => (
             <div key={category.title} className="skills__category">
@@ -43,6 +43,6 @@ export default function Skills() {
                 </ul>
             </div>
         ))}
-    </div>
+    </section>
     )
 }

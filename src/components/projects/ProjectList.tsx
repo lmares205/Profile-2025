@@ -23,7 +23,7 @@ export default function ProjectList() {
     ];
     return (
     <div className="project-list">
-        <h3 className="project-list__title">Projects</h3>
+        <h2 className="project-list__title">Projects</h2>
         <div className="project-list__wrapper">
             {projects.map((project) => (
                 <ProductCard key={project.id} title={project.title} image={project.image} description={project.description} />
