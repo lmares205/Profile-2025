@@ -12,6 +12,38 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-lunar: #2b402e;
+  --color-aths: #ede5d2;
+  --color-envy: #8dae8a;
+  --color-manatee: #8e949c;
+}
+
+@layer components {
+  p {
+    font-size: var(--text-base);
+    color: var(--color-lunar);
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-white);
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-lunar);
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-lunar);
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
