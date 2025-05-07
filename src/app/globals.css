@@ -17,10 +17,11 @@
   --color-aths: #ede5d2;
   --color-envy: #8dae8a;
   --color-manatee: #8e949c;
+  --color-yellow: #eab308;
 }
 
 @layer components {
-  p {
+  p, li {
     font-size: var(--text-base);
     color: var(--color-lunar);
   }
@@ -55,4 +56,59 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav.closed {
+  transform: translateX(-100%);
+}
+
+button.secondary {
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid white;
+  padding: 1rem;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+}
+
+button.secondary:hover,
+button.secondary:focus,
+button.secondary:active {
+  background-color: var(--color-yellow);
+  color: var(--color-lunar);
+  border-color: var(--color-yellow);
+}
+
+button.primary {
+  background-color: var(--color-yellow);
+  color: var(--color-lunar);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid var(--color-yellow);
+  padding: 1rem;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+}
+
+button.primary:hover,
+button.primary:focus,
+button.primary:active {
+  background-color: white;
+  border-color: var(--color-lunar);
 }

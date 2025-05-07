@@ -1,7 +1,6 @@
 'use client';
 
 import Image from "next/image";
-import ContactButton from "./ContactButton";
 import { scrollToElement } from '@/utils/scrollUtils';
 import MobileNav from "./MobileNav";
 import { useState } from "react";
@@ -57,7 +56,13 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="contact-button hidden md:block">
-                    <ContactButton buttonStyle="secondary" />
+                <button
+                className="secondary"
+                onClick={() => scrollToElement('contact')}
+                type="button"
+                >
+                    Contact Me
+                </button>
                 </div>
             </div>
         </div>

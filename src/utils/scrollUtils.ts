@@ -2,11 +2,15 @@ export const scrollToElement = (destination: string) => {
     let destinationEl = document.getElementById(destination);
 
     if (destinationEl) {
-        let destinationY = destinationEl.offsetTop - 140;
+        let headerOffset = 140;
+        if(window.innerWidth < 768) {
+            headerOffset = 100;
+        } 
+        let destinationY = destinationEl.offsetTop - headerOffset;
         window.scrollTo({
             top: destinationY,
             left: 0,
             behavior: 'smooth'
-        })
+        });
     }
 };
