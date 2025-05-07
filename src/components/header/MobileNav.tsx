@@ -1,14 +1,27 @@
 'use client';
 
+import { useState } from 'react';
 import { scrollToElement } from '@/utils/scrollUtils';
 import ContactButton from './ContactButton';
 import Image from 'next/image';
 
-export default function MobileNav() {
+interface MobileNavProps {
+    isOpen: boolean;
+    setIsOpen: (isOpen: boolean) => void;
+}
+
+export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
+
     return (
-        <div id="mobile-nav" className="mobile-nav flex flex-col p-3 bg-aths w-screen max-w-[300px] h-full">
+        <div id="mobile-nav" className={`mobile-nav ${isOpen ? 'open' : 'closed'} flex flex-col p-3 bg-aths w-screen max-w-[300px] h-full`}>
             <div className="mobile-nav__close flex justify-end pb-3">
-                <Image src="/close.svg" alt="close icon" width={30} height={30} />
+                <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    className="cursor-pointer"
+                >
+                    <Image src="/close.svg" alt="close icon" width={30} height={30} />
+                </button>
             </div>
             <div className="mobile-nav__inner flex flex-col flex-grow gap-10 p-7 bg-white rounded-lg">
                 <div className="mobile-nav__links flex flex-col gap-8">

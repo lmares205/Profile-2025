@@ -3,21 +3,28 @@
 import Image from "next/image";
 import ContactButton from "./ContactButton";
 import { scrollToElement } from '@/utils/scrollUtils';
+import MobileNav from "./MobileNav";
+import { useState } from "react";
 
 export default function Header() {
+    const [isOpen, setIsOpen] = useState(false);
     return (
+        <>
         <div className="header-wrapper fixed top-0 w-screen mx-auto bg-linear-to-b from-lunar/100 to-lunar/80 backdrop-blur-xs">
             <div className="header flex items-center justify-center md:justify-between md:px-10 md:py-5 px-5 py-3 w-screen max-w-[1280px] mx-auto">
-                <div className="mobile-nav-button md:hidden absolute left-7 top-7 p-2 bg-white rounded-lg">
+                <button
+                    type="button"
+                    onClick={() => setIsOpen(true)}
+                    className="mobile-nav-button md:hidden absolute left-7 top-7 p-2 bg-white rounded-lg cursor-pointer"
+                >
                     <Image
-                        className=""
                         src="/menu.svg"
                         alt="menu icon"
                         width={25}
                         height={25}
-                    priority
-                />
-                </div>
+                        priority
+                    />
+                </button>
                 <Image
                     className="rounded-lg w-[75px] h-[75px] md:w-[100px] md:h-[100px]"
                     src="/LM_logo.png"
@@ -50,9 +57,11 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="contact-button hidden md:block">
-                    <ContactButton />
+                    <ContactButton buttonStyle="secondary" />
                 </div>
             </div>
         </div>
+        <MobileNav isOpen={isOpen} setIsOpen={setIsOpen} />
+        </>
     );
 }
