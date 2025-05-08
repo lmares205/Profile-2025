@@ -20,15 +20,23 @@ export default function ProjectList() {
             image: "/boutique-fashion.png",
             description: "Assisted in the full development of a Shopify store, from creating base theme styling to building custom content blocks and resolving bugs. Integrated Google Maps API to retrieve and display store location data based on proximity to users. Developed custom logic to link main products with child variants for individualized marketing and ranking. Designed ADA-compliant, responsive UI elements to ensure cross-browser compatibility, stability, and scalability. Aligned UI components with high-fidelity Figma designs and ensured quality by passing comprehensive functional QA testing. Shortly after launch, the site\'s first collaborative collection sold out in record time.",
         },
+        {
+            id: 4,
+            title: "headless eccomerce application",
+            image: "/boutique-fashion.png",
+            description: "Led the development of a high-performance e-commerce solution using Shopify's Hydrogen framework and Remix, implementing a custom Yotpo Reviews integration that enhanced the product discovery experience. Engineered a secure, token-based authentication system with optimal caching strategies, resulting in improved API performance. Developed reusable TypeScript components adhering to modern web standards and accessibility guidelines. Utilized modern web technologies including React, TypeScript, GraphQL, and Tailwind CSS to create a responsive and maintainable codebase. The solution seamlessly integrated with Shopify's ecosystem while providing a superior user experience through custom-built features like star ratings, review statistics, and verified buyer badges."
+        }
     ];
     return (
-    <div className="project-list">
-        <h2 className="project-list__title">Projects</h2>
-        <div className="project-list__wrapper">
-            {projects.map((project) => (
-                <ProductCard key={project.id} title={project.title} image={project.image} description={project.description} />
-            ))}
+    <section id="projects" className="project-list md:px-7 md:py-0 px-0 py-0 w-screen max-w-[1280px] mx-auto">
+        <div className="project-list__inner md:px-4 md:py-6 px-5 py-4 bg-aths md:rounded-lg">
+            <h2 className="project-list__title">Projects</h2>
+            <div className="project-list__wrapper flex flex-col gap-5">
+                {projects.map((project) => (
+                    <ProductCard key={project.id} title={project.title} image={project.image} description={project.description} />
+                ))}
+            </div>
         </div>
-    </div>
+    </section>
     );
 }
