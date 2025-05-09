@@ -160,3 +160,46 @@ button.primary:active {
 .slidenav .nav-dot.current {
   border-color: var(--color-yellow);
 }
+
+.slides {
+  position: relative;
+}
+
+.slide {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: left 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.slide.current,
+.slide.next,
+.slide.prev {
+  visibility: visible;
+  opacity: 1;
+}
+
+.slide.current {
+  left: 0;
+  z-index: 3;
+}
+
+.slide.next {
+  left: 100%;
+  z-index: 2;
+}
+
+.slide.prev {
+  left: -100%;
+  z-index: 2;
+}
+
+/* When transitioning, ensure the entering slide is on top */
+.slide.next.in-transition,
+.slide.prev.in-transition {
+  z-index: 1;
+}

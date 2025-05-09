@@ -76,6 +76,16 @@ export default function ProjectList() {
                     id: 1,
                     src: "/boutique-fashion.png",
                     alt: ""
+                },
+                {
+                    id: 2,
+                    src: "/boutique-fashion.png",
+                    alt: ""
+                },
+                {
+                    id: 3,
+                    src: "/boutique-fashion.png",
+                    alt: ""
                 }
             ],
             description: "Led the development of a high-performance e-commerce solution using Shopify's Hydrogen framework and Remix, implementing a custom Yotpo Reviews integration that enhanced the product discovery experience. Engineered a secure, token-based authentication system with optimal caching strategies, resulting in improved API performance. Developed reusable TypeScript components adhering to modern web standards and accessibility guidelines. Utilized modern web technologies including React, TypeScript, GraphQL, and Tailwind CSS to create a responsive and maintainable codebase. The solution seamlessly integrated with Shopify's ecosystem while providing a superior user experience through custom-built features like star ratings, review statistics, and verified buyer badges."

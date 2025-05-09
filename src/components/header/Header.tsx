@@ -9,7 +9,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-        <div className="header-wrapper fixed top-0 w-screen mx-auto bg-linear-to-b from-lunar/100 to-lunar/80 backdrop-blur-xs z-1">
+        <div className="header-wrapper fixed top-0 w-screen mx-auto bg-linear-to-b from-lunar/100 to-lunar/80 backdrop-blur-xs z-5">
             <div className="header flex items-center justify-center md:justify-between md:px-10 md:py-5 px-5 py-3 w-screen max-w-[1280px] mx-auto">
                 <button
                     type="button"
