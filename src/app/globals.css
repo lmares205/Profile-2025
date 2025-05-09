@@ -145,3 +145,18 @@ button.primary:active {
   background-color: white;
   border-color: var(--color-lunar);
 }
+
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border-width: 0;
+}
+
+.slidenav .nav-dot.current {
+  border-color: var(--color-yellow);
+}

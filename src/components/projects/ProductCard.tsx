@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
 
 interface Image {
     id: number;
@@ -7,43 +10,54 @@ interface Image {
 }
 
 export default function ProductCard({ title, images, description, id }: { title: string; images: Image[]; description: string; id: number }) {
-    const imageCount = images.length;
+    const imagesCount = images.length;
+    const [currentSlide, setCurrentSlide] = useState(0);
     return (
-    <div className="project-card">
-        <div className="flex flex-col" role="group" aria-roledescription="carousel" aria-label="Project Images">
-            <div className="flex flex-row gap-3 order-2" role="group" aria-label="Slide controls">
-                {Array.from({ length: imageCount }).map((_, i) => (
-                    <button
-                        key={i}
-                        type="button"
-                        aria-label={`Show slide ${i + 1} of ${imageCount}`}
-                        className="px-2"
-                        aria-current={i === 0 ? "true" : undefined}
-                    >
-                        <Image src='/navigation-dot.svg' alt="navigation dot" width={20} height={20} />
-                    </button>
-                ))}
+        <div id={`project-card-${id}`} className="product-card">
+            <h3 id={`project-card-${id}-title`} className="product-card__title">{title}</h3>
+            <div id={`project-card-${id}-carousel`} role="group" className="project-card-carousel" aria-labelledby={`project-card-${id}-title`}>
+                <ul className="slides flex flex-row gap-2">
+                    {images.map((image) => (
+                        <li key={image.id} className={`slide ${currentSlide + 1 === image.id ? "current" : ""}`} aria-hidden={currentSlide + 1 !== image.id} tabIndex={-1}>
+                            <Image src={image.src} alt={image.alt} width={500} height={500} />
+                        </li>
+                    ))}
+                </ul>
+                <ul className="controls flex flex-row gap-2">
+                    <li>
+                        <button type="button" className="btn-prev p-2.5 bg-white hover:bg-yellow focus:bg-yellow rounded-full" onClick={() => {if (currentSlide === 0) {
+                            setCurrentSlide(imagesCount - 1);
+                        } else {
+                            setCurrentSlide(currentSlide - 1);
+                        }}}>
+                            <Image src={'/prev.svg'} alt="Previous Slide" width={30} height={30} />
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" className="btn-next p-2.5 bg-white hover:bg-yellow focus:bg-yellow rounded-full" onClick={() => {if (currentSlide === imagesCount - 1) {
+                            setCurrentSlide(0);
+                        } else {
+                            setCurrentSlide(currentSlide + 1);
+                        }}}>
+                            <Image src={'/next.svg'} alt="Next Slide" width={30} height={30} />
+                        </button>
+                    </li>
+                </ul>
+                <ul className="slidenav flex flex-row gap-2">
+                    {images.map((image) => (
+                        <li key={image.id}>
+                            <button data-slide={image.id} onClick={() => {setCurrentSlide(image.id - 1); const currentSlide = document.querySelector(`#project-card-${id} .slide.current`) as HTMLElement; currentSlide?.focus()}} className={`nav-dot border-[5px] border-aths hover:border-yellow focus:border-yellow hover:bg-yellow focus:bg-yellow rounded-full ${currentSlide + 1 === image.id ? "current" : ""}`}>
+                                <span className="visuallyhidden">Slide {image.id} of {imagesCount} : {image.alt}</span>
+                                <Image src={'/navigation-dot.svg'} alt="Navigation Dot" width={20} height={20} />
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+                <div aria-live="polite" aria-atomic="true" className="liveregion visuallyhidden">Slide {currentSlide + 1} of {imagesCount}</div>
             </div>
-
-            <button aria-label="Previous slide">
-                <Image src={'/prev.svg'} alt="previous icon" width={15} height={15} />
-            </button>
-
-            {images.map((image) => (
-                <div key={image.id} role="group" aria-roledescription="slide" aria-labelledby={`carousel_item-${id}_heading`} aria-hidden={image.id === 1 ? "false" : "true"}>
-                    <h4 id={`carousel_item-${id}_heading`} aria-label={image.alt}></h4>
-                    <Image className="project-card__image" src={image.src} alt={image.alt} width={150} height={150} />
-                </div>
-            ))}
-
-            <button aria-label="Next slide">
-                <Image src={'/next.svg'} alt="previous icon" width={15} height={15} />
-            </button>
+            <div className="product-card__description">
+                <p>{description}</p>
+            </div>
         </div>
-        <div className="project-card__content--wrapper">
-            <h3 className="project-card__title">{title}</h3>
-            <p className="project-card__description">{description}</p>
-        </div>
-    </div>
     );
 }
