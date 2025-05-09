@@ -34,21 +34,21 @@ export default function Header() {
                 />
                 <div className="header__links--desktop text-white hidden md:flex items-center gap-10">
                     <button
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 uppercase"
+                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4 uppercase"
                     onClick={() => scrollToElement('about')}
                     type="button"
                     >
                     About
                     </button>
                     <button
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 uppercase"
+                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4 uppercase"
                     onClick={() => scrollToElement('projects')}
                     type="button"
                     >
                     Projects
                     </button>
                     <button
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 uppercase"
+                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4 uppercase"
                     onClick={() => scrollToElement('skills')}
                     type="button"
                     >

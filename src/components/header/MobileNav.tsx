@@ -23,7 +23,7 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
             <div className="mobile-nav__inner flex flex-col flex-grow gap-10 p-7 bg-white rounded-lg">
                 <div className="mobile-nav__links flex flex-col gap-8">
                     <button
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-lunar font-semibold uppercase"
+                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4 text-lunar font-semibold uppercase"
                     onClick={() => {scrollToElement('about'); setIsOpen(false); }}
                     type="button"
                     >
@@ -31,7 +31,7 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                         About
                     </button>
                     <button
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-lunar font-semibold uppercase"
+                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4 text-lunar font-semibold uppercase"
                     onClick={() => {scrollToElement('projects'); setIsOpen(false); }}
                     type="button"
                     >
@@ -39,7 +39,7 @@ export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
                         Projects
                     </button>
                     <button
-                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-lunar font-semibold uppercase"
+                    className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4 text-lunar font-semibold uppercase"
                     onClick={() => {scrollToElement('skills'); setIsOpen(false); }}
                     type="button"
                     >

@@ -2,11 +2,11 @@ import Image from "next/image";
 
 export default function Contact() {
     return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact md:px-10 md:py-5 px-5 py-3 w-screen max-w-[1280px] mx-auto">
         <h2 className="contact__title">Contact Me</h2>
         <div className="contact__links">
             <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4"
             href="https://www.linkedin.com/in/leslie-mares/"
             target="_blank"
             rel="noopener noreferrer"
@@ -21,7 +21,7 @@ export default function Contact() {
             LinkedIn
             </a>
             <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4"
             href="https://github.com/lmaresRP"
             target="_blank"
             rel="noopener noreferrer"
@@ -36,7 +36,7 @@ export default function Contact() {
             GitHub
             </a>
             <a
-            className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+            className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4"
             href="mailto:lmmares102@gmail.com"
             target="_blank"
             rel="noopener noreferrer"
