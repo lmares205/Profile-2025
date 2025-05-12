@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Image {
     id: number;
@@ -15,20 +15,37 @@ export default function ProductCard({ title, images, description, id }: { title:
     const [prevSlide, setPrevSlide] = useState(imagesCount - 1);
     const [nextSlide, setNextSlide] = useState(1);
     const [transitionDirection, setTransitionDirection] = useState<'next' | 'prev' | null>(null);
+    const [slideHeight, setSlideHeight] = useState('600px');
+
+    useEffect(() => {
+        const calculateHeight = () => {
+            const aspectRatio = 1.6;
+            const projectCard = document.getElementById(`project-card-${id}`);
+            if (!projectCard) return;
+            const screenWidth = projectCard.clientWidth;
+            const calculatedHeight = projectCard.clientWidth / aspectRatio;
+            setSlideHeight(`${calculatedHeight}px`);
+        };
+
+        calculateHeight();
+        window.addEventListener('resize', calculateHeight);
+        return () => window.removeEventListener('resize', calculateHeight);
+    }, []);
+
     return (
         <div id={`project-card-${id}`} className="product-card">
             <h3 id={`project-card-${id}-title`} className="product-card__title">{title}</h3>
-            <div id={`project-card-${id}-carousel`} role="group" className="project-card-carousel" aria-labelledby={`project-card-${id}-title`}>
-                <ul className="slides h-[2rem] md:w-[50rem] md:h-[30rem] flex flex-row gap-2 rounded-lg overflow-hidden">
+            <div id={`project-card-${id}-carousel`} role="group" className="project-card-carousel relative" aria-labelledby={`project-card-${id}-title`}>
+                <ul className="slides flex flex-row max-h-[500px] gap-2 rounded-lg overflow-hidden" style={{ height: slideHeight }}>
                     {images.map((image) => (
-                        <li key={image.id} className={`slide p-2 bg-aths ${currentSlide + 1 === image.id ? "current" : ""} ${prevSlide + 1 === image.id ? `prev${transitionDirection === 'prev' ? " in-transition" : ""}` : ""} ${nextSlide + 1 === image.id ? `next${transitionDirection === 'next' ? " in-transition" : ""}` : ""}`} 
+                        <li key={image.id} className={`slide object-contain p-2 bg-aths ${currentSlide + 1 === image.id ? "current" : ""} ${prevSlide + 1 === image.id ? `prev${transitionDirection === 'prev' ? " in-transition" : ""}` : ""} ${nextSlide + 1 === image.id ? `next${transitionDirection === 'next' ? " in-transition" : ""}` : ""}`} 
                         aria-hidden={currentSlide + 1 !== image.id} tabIndex={-1} 
                         onTransitionEnd={(event) => { setTransitionDirection(null); }}>
-                            <Image className="h-[1rem] md:h-[29rem] object-contain" src={image.src} alt={image.alt} height={800} width={800}  />
+                            <Image className="project-card__image object-contain h-full" src={image.src} alt={image.alt} height={1280} width={1280}  />
                         </li>
                     ))}
                 </ul>
-                <ul className="controls flex flex-row gap-2">
+                <ul className="controls flex flex-row justify-between gap-2 z-3">
                     <li>
                         <button type="button" className="btn-prev p-2.5 bg-white hover:bg-yellow focus:bg-yellow rounded-full" onClick={() => {
                             setTransitionDirection('prev');
