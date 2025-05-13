@@ -14,6 +14,7 @@ export default function ProductCard({ title, images, description, id }: { title:
     const [currentSlide, setCurrentSlide] = useState(0);
     const [prevSlide, setPrevSlide] = useState(imagesCount - 1);
     const [nextSlide, setNextSlide] = useState(1);
+    const [dotNavigation, setDotNavigation] = useState<number | null>(null);
     const [transitionDirection, setTransitionDirection] = useState<'next' | 'prev' | null>(null);
     const [slideHeight, setSlideHeight] = useState('600px');
 
@@ -38,9 +39,9 @@ export default function ProductCard({ title, images, description, id }: { title:
             <div id={`project-card-${id}-carousel`} role="group" className="project-card-carousel relative" aria-labelledby={`project-card-${id}-title`}>
                 <ul className="slides flex flex-row max-h-[600px] gap-2 rounded-lg overflow-hidden" style={{ height: slideHeight }}>
                     {images.map((image) => (
-                        <li key={image.id} className={`slide object-contain p-2 bg-aths ${currentSlide + 1 === image.id ? "current" : ""} ${prevSlide + 1 === image.id ? `prev${transitionDirection === 'prev' ? " in-transition" : ""}` : ""} ${nextSlide + 1 === image.id ? `next${transitionDirection === 'next' ? " in-transition" : ""}` : ""}`} 
+                        <li key={image.id} className={`slide object-contain p-2 bg-aths ${currentSlide + 1 === image.id ? "current" : ""} ${prevSlide + 1 === image.id ? `prev${transitionDirection === 'prev' && dotNavigation === null ? " in-transition" : ""}` : ""} ${nextSlide + 1 === image.id ? `next${transitionDirection === 'next' && dotNavigation === null ? " in-transition" : ""}` : ""} ${dotNavigation === image.id - 1 ? " in-transition" : ""}`} 
                         aria-hidden={currentSlide + 1 !== image.id} tabIndex={-1} 
-                        onTransitionEnd={(event) => { setTransitionDirection(null); }}>
+                        onTransitionEnd={(event) => { setTransitionDirection(null); setDotNavigation(null); }}>
                             <Image className="project-card__image object-contain h-full" src={image.src} alt={image.alt} height={1280} width={1280}  />
                         </li>
                     ))}
@@ -77,15 +78,13 @@ export default function ProductCard({ title, images, description, id }: { title:
                                 if (newCurrentSlide === currentSlide) return;
                                 if (newCurrentSlide > currentSlide) {
                                     setTransitionDirection('prev');
-                                    setPrevSlide(currentSlide);
-                                    setCurrentSlide(newCurrentSlide);
-                                    setNextSlide(newCurrentSlide === imagesCount - 1 ? 0 : newCurrentSlide + 1);
                                 } else {
                                     setTransitionDirection('next');
-                                    setCurrentSlide(newCurrentSlide);
-                                    setNextSlide(currentSlide);
-                                    setPrevSlide(newCurrentSlide === 0 ? imagesCount - 1 : newCurrentSlide - 1);
                                 }
+                                setDotNavigation(currentSlide);
+                                setCurrentSlide(newCurrentSlide);
+                                setNextSlide(newCurrentSlide === imagesCount - 1 ? 0 : newCurrentSlide + 1);
+                                setPrevSlide(newCurrentSlide === 0 ? imagesCount - 1 : newCurrentSlide - 1);
                                 const currentSlideEl : HTMLElement = document.querySelector(`#project-card-${id} .slide.current`) as HTMLElement;
                                 currentSlideEl?.focus();
                             }} className={`nav-dot border-[5px] border-aths hover:border-yellow focus:border-yellow hover:bg-yellow focus:bg-yellow rounded-full ${currentSlide + 1 === image.id ? "current" : ""}`}>
