@@ -23,7 +23,7 @@ export default function ProductCard({ title, images, description, id }: { title:
             const projectCard = document.getElementById(`project-card-${id}`);
             if (!projectCard) return;
             const screenWidth = projectCard.clientWidth;
-            const calculatedHeight = projectCard.clientWidth / aspectRatio;
+            const calculatedHeight = Math.min(screenWidth / aspectRatio, 600);
             setSlideHeight(`${calculatedHeight}px`);
         };
 
@@ -36,7 +36,7 @@ export default function ProductCard({ title, images, description, id }: { title:
         <div id={`project-card-${id}`} className="product-card">
             <h3 id={`project-card-${id}-title`} className="product-card__title">{title}</h3>
             <div id={`project-card-${id}-carousel`} role="group" className="project-card-carousel relative" aria-labelledby={`project-card-${id}-title`}>
-                <ul className="slides flex flex-row max-h-[500px] gap-2 rounded-lg overflow-hidden" style={{ height: slideHeight }}>
+                <ul className="slides flex flex-row max-h-[600px] gap-2 rounded-lg overflow-hidden" style={{ height: slideHeight }}>
                     {images.map((image) => (
                         <li key={image.id} className={`slide object-contain p-2 bg-aths ${currentSlide + 1 === image.id ? "current" : ""} ${prevSlide + 1 === image.id ? `prev${transitionDirection === 'prev' ? " in-transition" : ""}` : ""} ${nextSlide + 1 === image.id ? `next${transitionDirection === 'next' ? " in-transition" : ""}` : ""}`} 
                         aria-hidden={currentSlide + 1 !== image.id} tabIndex={-1} 
@@ -45,10 +45,10 @@ export default function ProductCard({ title, images, description, id }: { title:
                         </li>
                     ))}
                 </ul>
-                <ul className="controls flex flex-row justify-between gap-2 z-3">
+                <ul className="controls flex flex-row justify-between gap-2 w-full z-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <li>
                         <button type="button" className="btn-prev p-2.5 bg-white hover:bg-yellow focus:bg-yellow rounded-full" onClick={() => {
-                            setTransitionDirection('prev');
+                            setTransitionDirection('next');
                             const newCurrentSlide = currentSlide === 0 ? imagesCount - 1 : currentSlide - 1;
                             setCurrentSlide(newCurrentSlide);
                             setNextSlide(currentSlide);
@@ -59,7 +59,7 @@ export default function ProductCard({ title, images, description, id }: { title:
                     </li>
                     <li>
                         <button type="button" className="btn-next p-2.5 bg-white hover:bg-yellow focus:bg-yellow rounded-full" onClick={() => {
-                            setTransitionDirection('next');
+                            setTransitionDirection('prev');
                             const newCurrentSlide = currentSlide === imagesCount - 1 ? 0 : currentSlide + 1;
                             setCurrentSlide(newCurrentSlide);
                             setNextSlide(newCurrentSlide === imagesCount - 1 ? 0 : newCurrentSlide + 1);
@@ -69,15 +69,23 @@ export default function ProductCard({ title, images, description, id }: { title:
                         </button>
                     </li>
                 </ul>
-                <ul className="slidenav flex flex-row gap-2">
+                <ul className="slidenav flex flex-row justify-center gap-2">
                     {images.map((image) => (
                         <li key={image.id}>
                             <button data-slide={image.id} onClick={() => {
                                 const newCurrentSlide = image.id - 1;
-                                setTransitionDirection(newCurrentSlide > currentSlide ? 'next' : 'prev');
-                                setCurrentSlide(newCurrentSlide);
-                                setNextSlide(newCurrentSlide === imagesCount - 1 ? 0 : newCurrentSlide + 1);
-                                setPrevSlide(newCurrentSlide > 0 ? newCurrentSlide - 1 : imagesCount - 1);
+                                if (newCurrentSlide === currentSlide) return;
+                                if (newCurrentSlide > currentSlide) {
+                                    setTransitionDirection('prev');
+                                    setPrevSlide(currentSlide);
+                                    setCurrentSlide(newCurrentSlide);
+                                    setNextSlide(newCurrentSlide === imagesCount - 1 ? 0 : newCurrentSlide + 1);
+                                } else {
+                                    setTransitionDirection('next');
+                                    setCurrentSlide(newCurrentSlide);
+                                    setNextSlide(currentSlide);
+                                    setPrevSlide(newCurrentSlide === 0 ? imagesCount - 1 : newCurrentSlide - 1);
+                                }
                                 const currentSlideEl : HTMLElement = document.querySelector(`#project-card-${id} .slide.current`) as HTMLElement;
                                 currentSlideEl?.focus();
                             }} className={`nav-dot border-[5px] border-aths hover:border-yellow focus:border-yellow hover:bg-yellow focus:bg-yellow rounded-full ${currentSlide + 1 === image.id ? "current" : ""}`}>
