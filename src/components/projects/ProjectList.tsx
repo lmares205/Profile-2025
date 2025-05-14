@@ -26,18 +26,12 @@ export default function ProjectList() {
                 },
                 {
                     id: 4,
-                    src:"/xer-assets/XER-VID-2.mp4",
-                    alt: "Service Agreements in popup modal video",
-                    type: "video"
-                },
-                {
-                    id: 5,
                     src:"/xer-assets/XER-3.png",
                     alt: "Service Agreements in main cart",
                     type: "image"
                 }
             ],
-            description: "Led the development of a sophisticated product warranty management system, integrating dynamic warranty offerings across multiple product lines. Designed and implemented custom PHP modules to automate warranty associations, improve upsell opportunities, and enhance the customer experience by matching relevant warranty options to product attributes. Highlighted service agreements as add-ons throughout the user journey to increase product visibility, leveraging robust backend architecture to ensure scalability and maintainability, while adhering to SOLID principles. Built ADA-compliant elements, such as tooltips, radio buttons, and collapsible options, to further enhance the user experience.",
+            description: "Led the development of a sophisticated product warranty management system, integrating dynamic warranty offerings across multiple product lines. Designed and implemented custom modules to automate warranty associations, improve upsell opportunities, and enhance the customer experience by matching relevant warranty options to product attributes. Highlighted service agreements as add-ons throughout the user journey to increase product visibility, leveraging robust backend architecture to ensure scalability and maintainability, while adhering to SOLID principles. Built ADA-compliant elements, such as tooltips, radio buttons, and collapsible options, to further enhance the user experience.",
         },
         {
             id: 2,
@@ -45,20 +39,32 @@ export default function ProjectList() {
             assets: [
                 {
                     id: 1,
-                    src: "/home-decor.png",
-                    alt: "",
+                    src: "/stk-assets/STK-1.png",
+                    alt: "product listing page",
                     type: "image"
                 },
                 {
                     id: 2,
-                    src: "/home-decor-2.png",
-                    alt: "",
-                    type: "image"
+                    src: "/stk-assets/STK-VID-2.mp4",
+                    alt: "product detail page filters and size selection",
+                    type: "video"
                 },
                 {
                     id: 3,
-                    src: "/home-decor-3.png",
-                    alt: "",
+                    src: "/stk-assets/STK-2.png",
+                    alt: "product detail page",
+                    type: "image"
+                },
+                {
+                    id: 4,
+                    src: "/stk-assets/STK-VID-1.mp4",
+                    alt: "product detail page carpet size selection",
+                    type: "video"
+                },
+                {
+                    id: 5,
+                    src: "/stk-assets/STK-3.png",
+                    alt: "sample products modal",
                     type: "image"
                 }
             ],

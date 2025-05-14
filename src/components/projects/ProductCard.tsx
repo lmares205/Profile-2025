@@ -51,7 +51,7 @@ export default function ProductCard({ title, assets, description, id }: { title:
                         </li>
                     ))}
                 </ul>
-                <ul className="controls flex flex-row justify-between gap-2 w-full z-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <ul className="controls hidden md:flex flex-row justify-between gap-2 w-full z-3 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <li>
                         <button type="button" className="btn-prev p-2.5 bg-white border-1 border-lunar hover:bg-yellow focus:bg-yellow rounded-full" onClick={() => {
                             setTransitionDirection('next');
