@@ -1,4 +1,4 @@
-import ProductCard from "./ProductCard";
+import ProductCard, { Asset } from "./ProductCard";
 
 export default function ProjectList() {
     const projects = [

@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { scrollToElement } from '@/utils/scrollUtils';
 import Image from 'next/image';
 
@@ -9,8 +10,14 @@ interface MobileNavProps {
 }
 
 export default function MobileNav({ isOpen, setIsOpen }: MobileNavProps) {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     return (
-        <div id="mobile-nav" className={`mobile-nav ${isOpen ? 'open' : 'closed'} flex flex-col p-3 bg-aths w-screen max-w-[300px] h-full md:hidden z-6`}>
+        <div id="mobile-nav" className={`mobile-nav ${isOpen ? 'open' : 'closed'} flex flex-col p-3 bg-aths w-screen max-w-[300px] h-full md:hidden z-6 transition-opacity duration-300 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
             <div className="mobile-nav__close flex justify-end pb-3">
                 <button
                     type="button"

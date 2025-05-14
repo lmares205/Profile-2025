@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-interface Asset {
+export interface Asset {
     id: number;
     src: string;
     alt: string;
@@ -138,7 +138,7 @@ export default function ProductCard({ title, assets, description, id }: { title:
                         </button>
                     </li>
                 </ul>
-                <ul className="slidenav flex flex-row justify-center gap-2 mt-2.5">
+                <ul className="slidenav flex flex-row justify-center gap-2 mt-4">
                     {assets.map((asset) => (
                         <li key={asset.id}>
                             <button data-slide={asset.id} onClick={() => {
@@ -155,7 +155,7 @@ export default function ProductCard({ title, assets, description, id }: { title:
                                 setPrevSlide(newCurrentSlide === 0 ? assetsCount - 1 : newCurrentSlide - 1);
                                 const currentSlideEl : HTMLElement = document.querySelector(`#project-card-${id} .slide.current`) as HTMLElement;
                                 currentSlideEl?.focus();
-                            }} className={`nav-dot border-[5px] border-aths hover:border-yellow focus:border-yellow hover:bg-yellow focus:bg-yellow rounded-full ${currentSlide + 1 === asset.id ? "current" : ""}`}>
+                            }} className={`nav-dot border-[3px] border-aths hover:border-yellow focus:border-yellow hover:bg-yellow focus:bg-yellow rounded-full ${currentSlide + 1 === asset.id ? "current" : ""}`}>
                                 <span className="visuallyhidden">Slide {asset.id} of {assetsCount} : {asset.alt}</span>
                                 <Image src={'/navigation-dot.svg'} alt="Navigation Dot" width={20} height={20} />
                             </button>
