@@ -68,7 +68,7 @@ export default function ProjectList() {
                     type: "image"
                 }
             ],
-            description: "Developed tailored user experiences for both retail and B2B users, including custom logic to distinguish and display sample vs. main products, with B2B-exclusive purchasing access and price visibility. Integrated APIs for dynamic custom rug pricing and implemented error handling for custom carpet dimensions. Modified third-party Klevu templates via post-render scripting to enhance product recommendations and designed a custom hero banner to elevate visual engagement—efforts that resulted in a 16% increase in conversion rate.",
+            description: "Developed tailored user experiences for both retail and B2B users, including custom logic to distinguish and display sample vs. main products, with B2B-exclusive purchasing access and price visibility. Integrated APIs for dynamic custom rug pricing based on the cutomer's desired dimensions. Implemented error handling for invalid carpet dimensions, and created a sizing feature on the product listing page that accepts rug dimensions and displays corresponding pricing directly on product cards. Modified third-party Klevu templates via post-render scripting to enhance product recommendations and designed a custom hero banner to elevate visual engagement—contributing to a 16% increase in conversion rate.",
         },
         {
             id: 3,
@@ -76,20 +76,20 @@ export default function ProjectList() {
             assets: [
                 {
                     id: 1,
-                    src: "/boutique-fashion.png",
-                    alt: "",
+                    src: "/hyd-assets/HYD-1.png",
+                    alt: "product details page",
                     type: "image"
                 },
                 {
                     id: 2,
-                    src: "/boutique-fashion.png",
-                    alt: "",
+                    src: "/hyd-assets/HYD-2.png",
+                    alt: "reviews widget",
                     type: "image"
                 },
                 {
                     id: 3,
-                    src: "/boutique-fashion.png",
-                    alt: "",
+                    src: "/hyd-assets/HYD-3.png",
+                    alt: "add a review form",
                     type: "image"
                 }
             ],
