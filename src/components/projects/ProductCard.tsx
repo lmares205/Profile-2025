@@ -40,7 +40,7 @@ export default function ProductCard({ title, assets, description, id }: { title:
             <div id={`project-card-${id}-carousel`} role="group" className="project-card-carousel relative my-4" aria-labelledby={`project-card-${id}-title`}>
                 <ul className="slides flex flex-row max-h-[600px] gap-2 rounded-lg overflow-hidden" style={{ height: slideHeight }}>
                     {assets.map((asset) => (
-                        <li key={asset.id} className={`slide object-contain p-2 bg-aths ${currentSlide + 1 === asset.id ? "current" : ""} ${prevSlide + 1 === asset.id ? `prev${transitionDirection === 'prev' && dotNavigation === null ? " in-transition" : ""}` : ""} ${nextSlide + 1 === asset.id ? `next${transitionDirection === 'next' && dotNavigation === null ? " in-transition" : ""}` : ""} ${dotNavigation === asset.id - 1 ? " in-transition" : ""}`} 
+                        <li key={asset.id} className={`slide object-contain md:p-2 bg-aths ${currentSlide + 1 === asset.id ? "current" : ""} ${prevSlide + 1 === asset.id ? `prev${transitionDirection === 'prev' && dotNavigation === null ? " in-transition" : ""}` : ""} ${nextSlide + 1 === asset.id ? `next${transitionDirection === 'next' && dotNavigation === null ? " in-transition" : ""}` : ""} ${dotNavigation === asset.id - 1 ? " in-transition" : ""}`} 
                         aria-hidden={currentSlide + 1 !== asset.id} tabIndex={-1} 
                         onTransitionEnd={(event) => { setTransitionDirection(null); setDotNavigation(null); }}>
                             {asset.type === 'video' ? (

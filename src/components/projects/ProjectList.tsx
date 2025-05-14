@@ -72,31 +72,6 @@ export default function ProjectList() {
         },
         {
             id: 3,
-            title: "Boutique Fashion Industry Client",
-            assets: [
-                {
-                    id: 1,
-                    src: "/boutique-fashion.png",
-                    alt: "",
-                    type: "image"
-                },
-                {
-                    id: 2,
-                    src: "/boutique-fashion-2.png",
-                    alt: "",
-                    type: "image"
-                },
-                {
-                    id: 3,
-                    src: "/boutique-fashion-3.png",
-                    alt: "",
-                    type: "image"
-                }
-            ],
-            description: "Assisted in the full development of a Shopify store, from creating base theme styling to building custom content blocks and resolving bugs. Integrated Google Maps API to retrieve and display store location data based on proximity to users. Developed custom logic to link main products with child variants for individualized marketing and ranking. Designed ADA-compliant, responsive UI elements to ensure cross-browser compatibility, stability, and scalability. Aligned UI components with high-fidelity Figma designs and ensured quality by passing comprehensive functional QA testing. Shortly after launch, the site\'s first collaborative collection sold out in record time.",
-        },
-        {
-            id: 4,
             title: "Headless eCommerce Application",
             assets: [
                 {
@@ -119,6 +94,37 @@ export default function ProjectList() {
                 }
             ],
             description: "Led the development of a high-performance e-commerce solution using Shopify's Hydrogen framework and Remix, implementing a custom Yotpo Reviews integration that enhanced the product discovery experience. Engineered a secure, token-based authentication system with optimal caching strategies, resulting in improved API performance. Developed reusable TypeScript components adhering to modern web standards and accessibility guidelines. Utilized modern web technologies including React, TypeScript, GraphQL, and Tailwind CSS to create a responsive and maintainable codebase. The solution seamlessly integrated with Shopify's ecosystem while providing a superior user experience through custom-built features like star ratings, review statistics, and verified buyer badges."
+        },
+        {
+            id: 4,
+            title: "Boutique Fashion Industry Client",
+            assets: [
+                {
+                    id: 1,
+                    src: "/lsf-assets/LSF-1.png",
+                    alt: "product listing page",
+                    type: "image"
+                },
+                {
+                    id: 2,
+                    src: "/lsf-assets/LSF-2.png",
+                    alt: "megamenu",
+                    type: "image"
+                },
+                {
+                    id: 3,
+                    src: "/lsf-assets/LSF-3.png",
+                    alt: "CMS content - richtext with images",
+                    type: "image"
+                },
+                {
+                    id: 4,
+                    src: "/lsf-assets/LSF-4.png",
+                    alt: "CMS content - grid with images, text, and buttons",
+                    type: "image"
+                }
+            ],
+            description: "Assisted in the full development of a Shopify store, from creating base theme styling to building custom content blocks and resolving bugs. Integrated Google Maps API to retrieve and display store location data based on proximity to users. Developed custom logic to link main products with child variants for individualized marketing and ranking. Designed ADA-compliant, responsive UI elements to ensure cross-browser compatibility, stability, and scalability. Aligned UI components with high-fidelity Figma designs and ensured quality by passing comprehensive functional QA testing. Shortly after launch, the site\'s first collaborative collection sold out in record time.",
         }
     ];
     return (
