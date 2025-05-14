@@ -35,7 +35,7 @@ export default function ProductCard({ title, assets, description, id }: { title:
     }, []);
 
     return (
-        <div id={`project-card-${id}`} className="product-card mb-8">
+        <div id={`project-card-${id}`} className="product-card mb-8 md:mb-12">
             <h3 id={`project-card-${id}-title`} className="product-card__title">{title}</h3>
             <div id={`project-card-${id}-carousel`} role="group" className="project-card-carousel relative my-4" aria-labelledby={`project-card-${id}-title`}>
                 <ul className="slides flex flex-row max-h-[600px] gap-2 rounded-lg overflow-hidden" style={{ height: slideHeight }}>

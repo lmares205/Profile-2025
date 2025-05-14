@@ -10,7 +10,7 @@ export default function Header() {
     return (
         <>
         <div className="header-wrapper fixed top-0 w-screen mx-auto bg-linear-to-b from-lunar/100 to-lunar/80 backdrop-blur-xs z-5">
-            <div className="header flex items-center justify-center md:justify-between md:px-10 md:py-5 px-5 py-3 w-screen max-w-[1280px] mx-auto">
+            <div className="header flex items-center justify-center md:justify-between md:px-10 md:py-2.5 px-5 py-3 w-screen max-w-[1280px] mx-auto">
                 <button
                     type="button"
                     onClick={() => setIsOpen(true)}
@@ -25,7 +25,7 @@ export default function Header() {
                     />
                 </button>
                 <Image
-                    className="rounded-lg w-[75px] h-[75px] md:w-[100px] md:h-[100px]"
+                    className="rounded-full w-[75px] h-[75px] md:w-[100px] md:h-[100px]"
                     src="/LM_logo.png"
                     alt="Leslie Mares logo"
                     width={200}

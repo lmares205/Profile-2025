@@ -2,7 +2,7 @@ export const scrollToElement = (destination: string) => {
     let destinationEl = document.getElementById(destination);
 
     if (destinationEl) {
-        let headerOffset = 140;
+        let headerOffset = 120;
         if(window.innerWidth < 768) {
             headerOffset = 100;
         } 
