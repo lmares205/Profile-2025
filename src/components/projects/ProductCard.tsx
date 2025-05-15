@@ -20,7 +20,6 @@ export default function ProductCard({ title, assets, description, id }: { title:
     const [slideHeight, setSlideHeight] = useState('600px');
     const [touchStart, setTouchStart] = useState<number | null>(null);
     const [touchEnd, setTouchEnd] = useState<number | null>(null);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const calculateHeight = () => {
@@ -34,7 +33,6 @@ export default function ProductCard({ title, assets, description, id }: { title:
 
         const handleResize = () => {
             calculateHeight();
-            setIsMobile(window.innerWidth <= 768);
         };
 
         handleResize();
@@ -103,7 +101,7 @@ export default function ProductCard({ title, assets, description, id }: { title:
                         <li key={asset.id} className={`slide object-contain md:p-2 bg-aths ${currentSlide + 1 === asset.id ? "current" : ""} ${prevSlide + 1 === asset.id ? `prev${transitionDirection === 'prev' && dotNavigation === null ? " in-transition" : ""}` : ""} ${nextSlide + 1 === asset.id ? `next${transitionDirection === 'next' && dotNavigation === null ? " in-transition" : ""}` : ""} ${dotNavigation === asset.id - 1 ? " in-transition" : ""}`} 
                         aria-hidden={currentSlide + 1 !== asset.id} tabIndex={-1} 
                         data-type={asset.type}
-                        onTransitionEnd={(event) => { setTransitionDirection(null); setDotNavigation(null); }}>
+                        onTransitionEnd={() => { setTransitionDirection(null); setDotNavigation(null); }}>
                             {asset.type === 'video' ? (
                                 <video className="project-card__video object-contain h-full m-auto pointer-events-none md:pointer-events-auto" 
                                 src={asset.src} controls loop muted playsInline 
