@@ -34,7 +34,7 @@ export default function Skills() {
     <section id="skills" className="skills md:px-10 md:py-5 px-5 py-3 w-screen max-w-[1280px] mx-auto">
         <h2 className="skills__title">Skills</h2>
         {skillCategories.map((category) => (
-            <div key={category.title} className="skills__category">
+            <div key={category.title} className="skills__category mb-5">
                 <h3 className="skills__category--title">{category.title}</h3>
                 <ul className="skills__category--list">
                     {category.skills.map((skill) => (

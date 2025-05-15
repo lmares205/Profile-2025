@@ -1,7 +1,14 @@
 import ProductCard, { Asset } from "./ProductCard";
 
 export default function ProjectList() {
-    const projects = [
+    interface Project {
+        id: number;
+        title: string;
+        assets: Asset[];
+        description: string;
+    }
+
+    const projects: Project[] = [
         {
             id: 1,
             title: "Print and Digital Products and Services Client",

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, TouchEvent } from "react";
 
 export interface Asset {
     id: number;
@@ -51,7 +51,7 @@ export default function ProductCard({ title, assets, description, id }: { title:
         }
     }
 
-    const handleSwipe = function(event: Event) {
+    const handleSwipe = function(event: TouchEvent) {
         const targetElement = event.target as HTMLElement;
         const isVideo = targetElement?.getAttribute('data-type') === 'video';
 
