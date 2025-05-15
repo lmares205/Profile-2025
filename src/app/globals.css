@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./fonts/Montserrat-VariableFont_wght.ttf');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NotoSerif';
+  src: url('./fonts/NotoSerif-VariableFont_wdth\,wght.ttf');
+  font-display: swap;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-header: 'NotoSerif';
+  --font-body: 'Montserrat';
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@theme {
+  --color-lunar: #2b402e;
+  --color-aths: #f4eee2;
+  --color-envy: #8dae8a;
+  --color-manatee: #8e949c;
+  --color-yellow: #eab308;
+}
+
+@layer components {
+  p, li {
+    font-size: var(--text-base);
+    color: var(--color-lunar);
+    font-family: var(--font-body);
+    margin-bottom: 15px;
+  }
+
+  h1 {
+    font-size: var(--text-3xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-lunar);
+    font-family: var(--font-header);
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-lunar);
+    font-family: var(--font-header);
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-lunar);
+    font-family: var(--font-header);
+    margin-bottom: 15px;
+  }
+
+  @media screen and (min-width: 768px) {
+    h1 {
+      font-size: var(--text-4xl);
+    }
+
+    h2 {
+      font-size: var(--text-3xl);
+    }
+
+    h3 {
+      font-size: var(--text-2xl);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav.closed {
+  transform: translateX(-100%);
+}
+
+button.secondary {
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid white;
+  padding: 1rem;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+}
+
+button.secondary:hover,
+button.secondary:focus,
+button.secondary:active {
+  background-color: var(--color-yellow);
+  color: var(--color-lunar);
+  border-color: var(--color-yellow);
+}
+
+button.primary {
+  background-color: var(--color-yellow);
+  color: var(--color-lunar);
+  font-weight: 600;
+  text-transform: uppercase;
+  border: 1px solid var(--color-yellow);
+  padding: 1rem;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color;
+  transition-duration: 200ms;
+}
+
+button.primary:hover,
+button.primary:focus,
+button.primary:active {
+  background-color: white;
+  border-color: var(--color-lunar);
+}
+
+.visuallyhidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border-width: 0;
+}
+
+.slidenav .nav-dot.current {
+  border-color: var(--color-yellow);
+}
+
+.slides {
+  position: relative;
+}
+
+.slide {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.slide.current,
+.slide.next,
+.slide.prev {
+  visibility: visible;
+  opacity: 1;
+}
+
+.slide.current {
+  left: 0;
+  z-index: 3;
+  transition: left 0.5s ease-in-out;
+}
+
+.slide.next {
+  left: 100%;
+  z-index: 2;
+}
+
+.slide.prev {
+  left: -100%;
+  z-index: 2;
+}
+
+/* When transitioning, ensure the entering slide is on top */
+.slide.next.in-transition,
+.slide.prev.in-transition {
+  z-index: 1;
+  transition: left 0.5s ease-in-out;
+}
