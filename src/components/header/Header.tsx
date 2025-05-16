@@ -24,14 +24,20 @@ export default function Header() {
                         priority
                     />
                 </button>
-                <Image
-                    className="rounded-full w-[75px] h-[75px] md:w-[100px] md:h-[100px]"
-                    src="/LM_logo.png"
-                    alt="Leslie Mares logo"
-                    width={200}
-                    height={200}
-                    priority
-                />
+                <button
+                className=""
+                onClick={() => scrollToElement('intro')}
+                type="button"
+                >
+                    <Image
+                        className="rounded-full w-[75px] h-[75px] md:w-[100px] md:h-[100px]"
+                        src="/LM_logo.png"
+                        alt="Leslie Mares logo"
+                        width={200}
+                        height={200}
+                        priority
+                    />
+                </button>
                 <div className="header__links--desktop text-white hidden md:flex items-center gap-10">
                     <button
                     className="flex items-center gap-2 hover:underline hover:underline-offset-4 focus:underline focus:underline-offset-4 uppercase"
