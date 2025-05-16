@@ -50,9 +50,9 @@ export default function Skills() {
         {skillCategories.map((category) => (
             <div key={category.title} className="skills__category mb-5">
                 <h3 className="skills__category--title">{category.title}</h3>
-                <ul className="skills__category--list flex flex-wrap font-medium gap-2 flex-row">
+                <ul className="skills__category--list flex flex-wrap gap-2 flex-row">
                     {category.skills.map((skill) => (
-                        <li key={skill} className={`skills__category--list-item py-1.5 px-2 rounded-lg ${category.textColor} ${category.bgColor}`}>{skill}</li>
+                        <li key={skill} className={`skills__category--list-item text-lg font-medium py-1.5 px-2 rounded-lg ${category.textColor} ${category.bgColor}`}>{skill}</li>
                     ))}
                 </ul>
             </div>

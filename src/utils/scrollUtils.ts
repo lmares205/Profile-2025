@@ -6,7 +6,7 @@ export const scrollToElement = (destination: string) => {
         if(window.innerWidth < 768) {
             headerOffset = 100;
         } 
-        const destinationY = destinationEl.offsetTop - headerOffset;
+        const destinationY = Math.max(destinationEl.offsetTop - headerOffset, 0);
         window.scrollTo({
             top: destinationY,
             left: 0,
