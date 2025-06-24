@@ -1,6 +1,7 @@
 export { metadata } from './layout.metadata';
 import "./globals.css";
 import Header from "@/components/header/Header";
+import MyStatsig from "./statsig";
 
 export default function RootLayout({
   children,
@@ -13,7 +14,7 @@ export default function RootLayout({
         className={`antialiased`}
       >
         <Header />
-        {children}
+        <MyStatsig>{children}</MyStatsig>
       </body>
     </html>
   );
